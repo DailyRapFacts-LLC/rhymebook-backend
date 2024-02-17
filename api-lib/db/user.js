@@ -53,7 +53,7 @@ export async function updateUserById(db, id, data) {
 
 export async function insertUser(
   db,
-  { email, originalPassword, bio = '', name, profilePicture, username }
+  { email, originalPassword, bio = '', name, profilePicture, username, genrePreferences = [], artistName = '' }
 ) {
   const user = {
     emailVerified: false,
@@ -62,13 +62,15 @@ export async function insertUser(
     name,
     username,
     bio,
+    genrePreferences, // New field for storing user genre preferences
+    artistName, // New field for storing the artist name if applicable
   };
   const password = await bcrypt.hash(originalPassword, 10);
   const { insertedId } = await db
     .collection('users')
     .insertOne({ ...user, password });
   user._id = insertedId;
-  return user;
+  return { ...user, password: undefined }; // Return user without password
 }
 
 export async function updateUserPasswordByOldPassword(
@@ -77,7 +79,7 @@ export async function updateUserPasswordByOldPassword(
   oldPassword,
   newPassword
 ) {
-  const user = await db.collection('users').findOne(new ObjectId(id));
+  const user = await db.collection('users').findOne({ _id: new ObjectId(id) });
   if (!user) return false;
   const matched = await bcrypt.compare(oldPassword, user.password);
   if (!matched) return false;
@@ -100,5 +102,6 @@ export function dbProjectionUsers(prefix = '') {
     [`${prefix}password`]: 0,
     [`${prefix}email`]: 0,
     [`${prefix}emailVerified`]: 0,
+    // Consider if you want to hide other fields by default in certain queries
   };
 }
