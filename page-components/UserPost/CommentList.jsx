@@ -17,7 +17,7 @@ const CommentList = ({ post }) => {
   return (
     <div className={styles.root}>
       <Spacer axis="vertical" size={1} />
-      {comments.map((comment) => (
+      {comments.map(comment => (
         <div key={comment._id} className={styles.wrap}>
           <Comment className={styles.comment} comment={comment} />
         </div>

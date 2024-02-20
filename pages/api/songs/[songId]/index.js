@@ -1,6 +1,10 @@
 // pages/api/songs/[songId].js
 import { ValidateProps } from '@/api-lib/constants';
-import { findSongById, updateSongById, deleteSongById } from '@/api-lib/db/song'; // Implement these DB functions
+import {
+  findSongById,
+  updateSongById,
+  deleteSongById,
+} from '@/api-lib/db/song'; // Implement these DB functions
 import { auths, validateBody } from '@/api-lib/middlewares';
 import { getMongoDb } from '@/api-lib/mongodb';
 import { ncOpts } from '@/api-lib/nc';
@@ -62,7 +66,9 @@ handler.use(...auths).delete(async (req, res) => {
   const result = await deleteSongById(db, req.query.songId);
 
   if (!result) {
-    return res.status(404).json({ error: { message: 'Song not found or failed to delete.' } });
+    return res
+      .status(404)
+      .json({ error: { message: 'Song not found or failed to delete.' } });
   }
 
   return res.status(204).end();

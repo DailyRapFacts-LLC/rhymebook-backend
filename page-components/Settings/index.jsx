@@ -53,7 +53,7 @@ const Auth = () => {
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const onSubmit = useCallback(async (e) => {
+  const onSubmit = useCallback(async e => {
     e.preventDefault();
     try {
       setIsLoading(true);
@@ -113,11 +113,11 @@ const AboutYou = ({ user, mutate }) => {
   const profilePictureRef = useRef();
 
   const [avatarHref, setAvatarHref] = useState(user.profilePicture);
-  const onAvatarChange = useCallback((e) => {
+  const onAvatarChange = useCallback(e => {
     const file = e.currentTarget.files?.[0];
     if (!file) return;
     const reader = new FileReader();
-    reader.onload = (l) => {
+    reader.onload = l => {
       setAvatarHref(l.currentTarget.result);
     };
     reader.readAsDataURL(file);
@@ -126,7 +126,7 @@ const AboutYou = ({ user, mutate }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit = useCallback(
-    async (e) => {
+    async e => {
       e.preventDefault();
       try {
         setIsLoading(true);

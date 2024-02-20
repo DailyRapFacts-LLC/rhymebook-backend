@@ -13,7 +13,7 @@ const NewPassword = ({ token }) => {
   // 'loading' | 'success'
   const [status, setStatus] = useState();
   const onSubmit = useCallback(
-    async (event) => {
+    async event => {
       event.preventDefault();
       setStatus('loading');
       try {

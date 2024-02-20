@@ -8,10 +8,10 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser((req, id, done) => {
-  getMongoDb().then((db) => {
+  getMongoDb().then(db => {
     findUserForAuth(db, id).then(
-      (user) => done(null, user),
-      (err) => done(err)
+      user => done(null, user),
+      err => done(err)
     );
   });
 });

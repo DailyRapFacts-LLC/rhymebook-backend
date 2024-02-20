@@ -5,7 +5,7 @@ import styles from './ThemeSwitcher.module.css';
 const ThemeSwitcher = () => {
   const { theme, setTheme } = useTheme();
   const onChange = useCallback(
-    (e) => {
+    e => {
       setTheme(e.currentTarget.value);
     },
     [setTheme]

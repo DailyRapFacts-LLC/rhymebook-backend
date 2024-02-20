@@ -19,7 +19,7 @@ const CommenterInner = ({ user, post }) => {
   const { mutate } = useCommentPages({ postId: post._id });
 
   const onSubmit = useCallback(
-    async (e) => {
+    async e => {
       e.preventDefault();
       try {
         setIsLoading(true);

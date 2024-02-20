@@ -35,7 +35,7 @@ export async function getMongoClient() {
     // client.connect() returns an instance of MongoClient when resolved
     global.mongoClientPromise = client
       .connect()
-      .then((client) => createIndexes(client));
+      .then(client => createIndexes(client));
   }
   return global.mongoClientPromise;
 }

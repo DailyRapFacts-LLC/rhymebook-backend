@@ -17,7 +17,7 @@ const PostList = () => {
     <div className={styles.root}>
       <Spacer axis="vertical" size={1} />
       <Wrapper>
-        {posts.map((post) => (
+        {posts.map(post => (
           <Link
             key={post._id}
             href={`/user/${post.creator.username}/post/${post._id}`}

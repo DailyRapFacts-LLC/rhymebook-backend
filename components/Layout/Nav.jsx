@@ -28,7 +28,7 @@ const UserMenu = ({ user, mutate }) => {
 
   useEffect(() => {
     // detect outside click to close menu
-    const onMouseDown = (event) => {
+    const onMouseDown = event => {
       if (
         !menuRef.current.contains(event.target) &&
         !avatarRef.current.contains(event.target)

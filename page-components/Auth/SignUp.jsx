@@ -23,7 +23,7 @@ const SignUp = () => {
   const router = useRouter();
 
   const onSubmit = useCallback(
-    async (e) => {
+    async e => {
       e.preventDefault();
       try {
         setIsLoading(true);

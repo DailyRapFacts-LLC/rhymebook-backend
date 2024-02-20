@@ -3,9 +3,169 @@
     "browser": true,
     "es6": true
   },
-  "extends": ["eslint:recommended", "next/core-web-vitals", "prettier"],
+  "extends": [
+    "eslint:recommended",
+    "next/core-web-vitals",
+    "prettier",
+    "airbnb-base",
+    "next/core-web-vitals",
+    "plugin:prettier/recommended"
+  ],
   "plugins": ["prettier"],
+
   "rules": {
-    "prettier/prettier": "error"
-  }
+    "arrow-parens": ["off"],
+    "prettier/prettier": "error",
+    "import/order": "off",
+    "import/no-unresolved": "off",
+    "import/extensions": "off",
+    "import/newline-after-import": "off",
+    "import/prefer-default-export": "off",
+    "class-methods-use-this": "off",
+    "no-underscore-dangle": "off",
+    "no-param-reassign": "off",
+    "prefer-const": "off",
+    "camelcase": "off",
+    "no-console": "off",
+    "eqeqeq": "off",
+    "no-unused-vars": "off",
+    "no-use-before-define": "off",
+    "no-undef": "off",
+    "no-return-await": "off",
+    "no-restricted-syntax": "off",
+    "no-plusplus": "off",
+    "func-names": "off",
+    "no-shadow": "off",
+    "no-restricted-globals": "off",
+    "guard-for-in": "off",
+    "import/no-cycle": "off",
+    "vars-on-top": "off",
+    "no-var": "off",
+    "block-scoped-var": "off",
+    "no-await-in-loop": "off",
+    "import/no-extraneous-dependencies": "off",
+    "default-param-last": "off",
+    "global-require": "off",
+    "no-redeclare": "off",
+    "import/export": "off",
+    "consistent-return": "off"
+  },
+  "overrides": [
+    {
+      "files": [
+        "pages/api/track/[trackId]/timed-events/index.js",
+        "pages/api/track/index.js",
+        "pages/api/user-posts/index.js"
+        // Add other file paths here
+      ],
+      "rules": {
+        "camelcase": "off",
+        "no-console": "off",
+        "eqeqeq": "off"
+        // Add other rule overrides here
+      }
+    },
+    {
+      "files": [
+        "pages/api/user/delete/[accountUid]/index.js"
+        // Add other file paths here
+      ],
+      "rules": {
+        "eqeqeq": "off"
+        // Add other rule overrides here
+      }
+    },
+    {
+      "files": [
+        "pages/api/user/email/verify.js",
+        "pages/api/user/index.js"
+        // Add other file paths here
+      ],
+      "rules": {
+        "no-underscore-dangle": "off"
+        // Add other rule overrides here
+      }
+    },
+    {
+      "files": [
+        "pages/api/user/password/index.js",
+        "pages/api/user/password/reset.js"
+        // Add other file paths here
+      ],
+      "rules": {
+        "no-underscore-dangle": "off"
+        // Add other rule overrides here
+      }
+    },
+    {
+      "files": [
+        "pages/api/users/[uid]/edit/index.js",
+        "pages/api/users/index.js"
+        // Add other file paths here
+      ],
+      "rules": {
+        "camelcase": "off"
+        // Add other rule overrides here
+      }
+    },
+    {
+      "files": [
+        "pages/api/v2/profile/index.js"
+        // Add other file paths here
+      ],
+      "rules": {
+        "consistent-return": "off"
+        // Add other rule overrides here
+      }
+    }
+    // Add more override blocks for other files as needed
+  ]
 }
+
+// {
+//   "parser": "babel-eslint",
+//   "plugins": ["import", "jest", "prettier"],
+//   "extends": [
+//     "airbnb-base",
+//     "plugin:jest/recommended",
+//     "next/core-web-vitals",
+//     "plugin:prettier/recommended"
+//   ],
+//   "rules": {
+//     "prettier/prettier": "error",
+//     "comma-dangle": [
+//       "error",
+//       {
+//         "arrays": "always-multiline",
+//         "objects": "always-multiline",
+//         "imports": "always-multiline",
+//         "exports": "always-multiline",
+//         "functions": "always-multiline"
+//       }
+//     ],
+//     "import/prefer-default-export": "off"
+//   },
+//   "overrides": [
+//     {
+//       // Unit tests
+//       "files": ["*.test.js"],
+//       "rules": {
+//         "func-names": "off"
+//       }
+//     },
+//     {
+//       // Regular code - excludes unit tests
+//       "files": ["*.js"],
+//       "excludedFiles": ["*.test.js"],
+//       "rules": {
+//         "no-use-before-define": "off",
+//         "no-shadow": "off"
+//       }
+//     }
+//   ],
+//   "env": {
+//     "node": true,
+//     "jest": true,
+//     "es6": true
+//   }
+// }

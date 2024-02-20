@@ -15,21 +15,21 @@ export async function findUserForAuth(db, userId) {
   return db
     .collection('users')
     .findOne({ _id: new ObjectId(userId) }, { projection: { password: 0 } })
-    .then((user) => user || null);
+    .then(user => user || null);
 }
 
 export async function findUserById(db, userId) {
   return db
     .collection('users')
     .findOne({ _id: new ObjectId(userId) }, { projection: dbProjectionUsers() })
-    .then((user) => user || null);
+    .then(user => user || null);
 }
 
 export async function findUserByUsername(db, username) {
   return db
     .collection('users')
     .findOne({ username }, { projection: dbProjectionUsers() })
-    .then((user) => user || null);
+    .then(user => user || null);
 }
 
 export async function findUserByEmail(db, email) {
@@ -37,7 +37,7 @@ export async function findUserByEmail(db, email) {
   return db
     .collection('users')
     .findOne({ email }, { projection: dbProjectionUsers() })
-    .then((user) => user || null);
+    .then(user => user || null);
 }
 
 export async function updateUserById(db, id, data) {
@@ -53,7 +53,16 @@ export async function updateUserById(db, id, data) {
 
 export async function insertUser(
   db,
-  { email, originalPassword, bio = '', name, profilePicture, username, genrePreferences = [], artistName = '' }
+  {
+    email,
+    originalPassword,
+    bio = '',
+    name,
+    profilePicture,
+    username,
+    genrePreferences = [],
+    artistName = '',
+  }
 ) {
   const user = {
     emailVerified: false,

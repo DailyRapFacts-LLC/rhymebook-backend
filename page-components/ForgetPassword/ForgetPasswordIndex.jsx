@@ -14,7 +14,7 @@ const ForgetPasswordIndex = () => {
   // 'loading' || 'success'
   const [status, setStatus] = useState();
   const [email, setEmail] = useState('');
-  const onSubmit = useCallback(async (e) => {
+  const onSubmit = useCallback(async e => {
     e.preventDefault();
     try {
       setStatus('loading');

@@ -11,7 +11,11 @@ const handler = nc(ncOpts);
 // Fetch a list of songs
 handler.get(async (req, res) => {
   const db = await getMongoDb();
-  const songs = await findSongs(db, req.query.before ? new Date(req.query.before) : undefined, req.query.limit ? parseInt(req.query.limit, 10) : undefined);
+  const songs = await findSongs(
+    db,
+    req.query.before ? new Date(req.query.before) : undefined,
+    req.query.limit ? parseInt(req.query.limit, 10) : undefined
+  );
   return res.json({ songs });
 });
 

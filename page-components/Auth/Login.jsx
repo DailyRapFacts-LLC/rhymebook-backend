@@ -25,7 +25,7 @@ const Login = () => {
   }, [user, router, isValidating]);
 
   const onSubmit = useCallback(
-    async (event) => {
+    async event => {
       setIsLoading(true);
       event.preventDefault();
       try {

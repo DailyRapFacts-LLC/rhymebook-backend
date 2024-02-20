@@ -19,7 +19,7 @@ const PosterInner = ({ user }) => {
   const { mutate } = usePostPages();
 
   const onSubmit = useCallback(
-    async (e) => {
+    async e => {
       e.preventDefault();
       try {
         setIsLoading(true);
